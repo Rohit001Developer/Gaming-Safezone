@@ -1,0 +1,160 @@
+<!-- contact sign section -->
+	<body>
+		<div class="container d-flex justify-content-center align-items-center min-vh-100">
+			<div class="row border rounded-5 p-3 bg-white shadow box-area">
+				<div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
+					<div class="featured-image mb-3">
+						<img src="https://media.licdn.com/dms/image/v2/D4D12AQEG--JigeDPPA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1673791420103?e=1743033600&v=beta&t=mUIY-ywirnQL0OKavrXYZmytN30r6DMeH2WSgAtrSyU" 
+							 class="img-fluid" 
+							 style="width: 300px; height: 200px;" 
+							 alt="Login Banner">
+					</div>
+					<p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Be Verified</p>
+					<small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Login To Continue</small>
+				</div>
+	
+				<div class="col-md-6 right-box">
+					<div class="row align-items-center">
+						<div class="header-text mb-4">
+							<h2>Hello, Again</h2>
+							<p>We are happy to have you back.</p>
+						</div>
+						<form id="loginForm">
+							<div class="input-group mb-3">
+								<input type="email" 
+									   id="email" 
+									   class="form-control form-control-lg bg-light fs-6" 
+									   placeholder="Email address" 
+									   required>
+							</div>
+							
+							<div class="input-group mb-1">
+								<input type="password" 
+									   id="password" 
+									   class="form-control form-control-lg bg-light fs-6" 
+									   placeholder="Password" 
+									   required>
+							</div>
+							
+							<div id="errorMessage" class="text-danger mb-2" style="display:none;">
+								Invalid email or password
+							</div>
+							
+							<div class="input-group mb-5 d-flex justify-content-between">
+								<div class="form-check">
+									<input type="checkbox" 
+										   class="form-check-input" 
+										   id="formCheck">
+									<label for="formCheck" class="form-check-label text-secondary">
+										<small>Remember Me</small>
+									</label>
+								</div>
+							</div>
+							
+							<div class="input-group mb-3">
+								<button type="submit" 
+										class="btn btn-lg btn-primary w-100 fs-6" 
+										id="submit-btn">Login</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<script>
+			// Simulated user database
+			const users = [
+				{ email: 'nagulanaresh50@gmail.com', password: 'panther', role: 'user' },
+				{ email: 'Bittheory24@gmail.com', password: 'Bit@2024', role: 'admin' }
+			];
+	
+			document.getElementById('loginForm').addEventListener('submit', function(event) {
+				event.preventDefault();
+				
+				const emailInput = document.getElementById('email');
+				const passwordInput = document.getElementById('password');
+				const errorMessage = document.getElementById('errorMessage');
+	
+				const email = emailInput.value.trim();
+				const password = passwordInput.value.trim();
+	
+				// Validate inputs
+				if (!email || !password) {
+					errorMessage.textContent = 'Please enter both email and password';
+					errorMessage.style.display = 'block';
+					return;
+				}
+	
+				// Authentication check
+				const user = users.find(u => u.email === email && u.password === password);
+	
+				if (user) {
+					// Successful login
+					errorMessage.style.display = 'none';
+					alert(`Welcome, ${user.role}!`);
+					
+					// Simulate role-based redirection
+					if (user.role === 'admin') {
+						// window.location.href = '/admin-dashboard';
+						console.log('Redirecting to admin dashboard');
+					} else {
+						// window.location.href = '/user-dashboard';
+						console.log('Redirecting to user dashboard');
+					}
+				} else {
+					// Failed login
+					errorMessage.textContent = 'Invalid email or password';
+					errorMessage.style.display = 'block';
+					
+					// Optional: Clear password field on failed login
+					passwordInput.value = '';
+				}
+			});
+		</script>
+
+	 <!-- contact sign section -->
+
+
+	<!-- Newsletter section -->
+	<section class="newsletter-section">
+		<div class="container">
+			<h2>Subscribe to our newsletter</h2>
+			<form class="newsletter-form">
+				<input type="text" placeholder="ENTER YOUR E-MAIL">
+				<button class="site-btn">subscribe  <img src="img/icons/double-arrow.png" alt="#"/></button>
+			</form>
+		</div>
+	</section>
+	<!-- Newsletter section end -->
+
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			
+			
+			<div class="footer-social d-flex justify-content-center">
+				<a href="#"><i class="fa fa-pinterest"></i></a>
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-dribbble"></i></a>
+				<a href="#"><i class="fa fa-behance"></i></a>
+			</div>
+			<div class="copyright"><a href=""></a> </div>
+		</div>
+	</footer>
+	<!-- Footer section end -->
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.sticky-sidebar.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
